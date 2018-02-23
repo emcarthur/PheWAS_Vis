@@ -1,4 +1,4 @@
-# PheWAS_Vis
+# PheWAS_vis
 
 Evonne McArthur 2/2018
 
