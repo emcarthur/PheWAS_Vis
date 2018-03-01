@@ -1,5 +1,7 @@
 library(ggplot2)
 shiny_output <- readRDS("my_plot.rds")
+#columns_desired_for_output <- c("phenotype","description","group","beta","SE","OR","p","n_total","n_cases","direction","size") # good for full phewas data
+columns_desired_for_output <- c("phenotype","description","group","p") # good for interaction term data
 
 ###################################
 
@@ -31,7 +33,7 @@ server <- function(input, output) {
     shiny_output
   })
   
-  columns = c("phenotype","description","group","beta","SE","OR","p","n_total","n_cases","direction","size")
+  columns = columns_desired_for_output
   
   output$click_info <- DT::renderDataTable(DT::datatable({
     nearPoints(shiny_output$data, input$plot1_click, addDist = F)[,columns]
